@@ -180,38 +180,70 @@ i {
     gap: 7px;
 }
 
+
+/* NAVIGATION LINKS */
 .nav-link {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 14px;
     padding: 12px 14px;
+    border-radius: 12px;
+
     font-size: 14px;
     font-weight: 600;
-    border-radius: 12px;
     color: #425653;
-    transition: background .2s,transform .2s;
+
+    transition: background-color 0.2s ease,
+                color 0.2s ease;
 }
 
+/* HOVER EFFECT */
 .nav-link:hover {
-    background: #e0eadd;
-    transform: translateX(3px);
+    background-color: #D6FFCB;
+    color: #042F32;
 }
 
+/* ACTIVE NAVIGATION */
 .nav-link.active {
-    background: #fff;
-    color: var(--teal);
-    box-shadow: 0 4px 14px #003d3411;
+    background-color: #FFFFFF;
+    color: #042F32;
+    box-shadow: 0 4px 14px rgba(0, 61, 52, 0.07);
 }
 
-.nav-link.active:before {
-    content: '';
+/* ACTIVE NAVIGATION HOVER */
+.nav-link.active:hover {
+    background-color: #E8F8E3;
+}
+
+/* ACTIVE INDICATOR */
+.nav-link.active::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
     width: 4px;
     height: 20px;
-    background: var(--teal);
-    border-radius: 4px;
-    position: absolute;
-    left: 19px;
+
+    background-color: #042F32;
+    border-radius: 0 4px 4px 0;
 }
+
+/* KEYBOARD ACCESSIBILITY */
+.nav-link:focus-visible {
+    outline: 3px solid #7C3AED;
+    outline-offset: 3px;
+}
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+    .nav-link {
+        transition: none;
+    }
+}
+
 
 .sidebar-bottom {
     margin-top: auto;
@@ -1718,12 +1750,6 @@ h1,h2,h3,p {
     scroll-margin-top: 84px;
 }
 
-@media (min-width: 761px) {
-    #projects, #about, #contact {
-        scroll-margin-top: 24px;
-    }
-
-}
 
 /* Clear, accessible GitHub repository actions. */
 
