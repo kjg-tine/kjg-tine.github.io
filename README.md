@@ -42,3 +42,11 @@ Contact: Provided TNT, GOMO, email, Facebook and Instagram links were filled in.
 - TESDA Java Programming NC III is identified as training completed, certification pending.
 - AI-Assisted Development is listed as a skill; the About section explains responsible use for brainstorming, coding, debugging, and learning.
 - Sidebar photo and social icons from the prior requests are included.
+
+
+## Coquette edition additions
+- Animated pastel bow/floral background and a user-selectable light/dark theme (saved in browser).
+- PUP Lost & Found Figma prototype linked directly; conceptual art is not a verified Figma screenshot.
+- STRIX Android prototype linked to user-provided Drive URL. Offline AI inference is **not** claimed as verified.
+- To enable resume download, put your PDF at `resume/Kristine-Joy-Torres-Resume.pdf` and remove `data-resume-pending="true"` from the resume link in index.html.
+- No hosting push made. Deploy by committing these extracted files at repo root.
