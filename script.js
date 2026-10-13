@@ -31,3 +31,14 @@ document.querySelectorAll('[data-placeholder-contact="true"]').forEach(link => {
     if (toast) { toast.textContent = `Add your real ${label} details in index.html first.`; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 3200); }
   });
 });
+
+
+// Appearance switcher: respects the user's OS preference on first visit.
+const themeToggle=document.getElementById('themeToggle');
+const savedTheme=localStorage.getItem('kristine-theme');
+const defaultDark=window.matchMedia('(prefers-color-scheme: dark)').matches;
+function setTheme(mode){document.documentElement.dataset.theme=mode;themeToggle.setAttribute('aria-pressed',String(mode==='dark'));themeToggle.setAttribute('aria-label',mode==='dark'?'Switch to light mode':'Switch to dark mode');themeToggle.innerHTML=mode==='dark'?'<i class="ph ph-sun" aria-hidden="true"></i><span>Light mode</span>':'<i class="ph ph-moon-stars" aria-hidden="true"></i><span>Dark mode</span>';document.querySelector('meta[name="theme-color"]')?.setAttribute('content',mode==='dark'?'#14252a':'#fce4d8')}
+setTheme(savedTheme || (defaultDark?'dark':'light'));
+themeToggle.addEventListener('click',()=>{const next=document.documentElement.dataset.theme==='dark'?'light':'dark';localStorage.setItem('kristine-theme',next);setTheme(next)});
+// Keep résumé button accessible without presenting a broken download before upload.
+document.getElementById('resumeDownload')?.addEventListener('click',e=>{if(e.currentTarget.dataset.resumePending==='true'){e.preventDefault();notify('Résumé coming soon — add your PDF to the resume folder to enable this button.')}});
