@@ -155,3 +155,47 @@ html[data-theme="dark"] .hackathon-view {color:#ffb4d0}
 html[data-theme="dark"] .about-visual,html[data-theme="dark"] .project-art {background:#2f4650}
 html[data-theme="dark"] .project-actions .button-outline {background:#ffd7e7;color:#27383b;border-color:#ffd7e7}
 html[data-theme="dark"] .project-actions .button-outline:hover {background:#f75590;color:#fff}
+
+
+/* ANIMATED VIDEO BACKGROUND */
+
+.video-background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Keep the video visible behind the portfolio */
+
+body {
+    background: transparent;
+    isolation: isolate;
+}
+
+.page-shell {
+    background: rgba(252, 228, 216, 0.72);
+}
+
+/* Dark mode */
+[data-theme="dark"] .page-shell {
+    background: rgba(8, 20, 24, 0.80);
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .video-background video {
+        display: none;
+    }
+
+    body {
+        background: #FCE4D8;
+    }
+}
